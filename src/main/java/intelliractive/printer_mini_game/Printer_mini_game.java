@@ -1,6 +1,5 @@
 package intelliractive.printer_mini_game;
 
-import org.apache.logging.log4j.spi.LoggerRegistry;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Printer_mini_game extends JavaPlugin {
@@ -9,7 +8,7 @@ public final class Printer_mini_game extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         System.out.println("Успешный запуск мини-игры \"Принтер\"!");
-        getServer().getPluginManager().registerEvents(new PrinterMiniGame(), this);
+        getServer().getPluginManager().registerEvents(new Game(), this);
     }
 
     @Override
