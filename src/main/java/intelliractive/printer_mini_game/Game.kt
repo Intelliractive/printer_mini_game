@@ -9,10 +9,6 @@
     The goal is to print the picture correctly (each block is in right place and of right color).
     The game differs depending on the coherence of the team of players.
     The game is over when all the blocks are printed.
-
-
-//    The game is over when the printer is broken.
-//    The game is over when the time runs out.
  */
 package intelliractive.printer_mini_game
 
@@ -23,56 +19,55 @@ import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
 
 class Game() : Listener {
-  // Состояние игры
-  var isStarted: Boolean = false
+    // Состояние игры
+    var isStarted: Boolean = false
 
-  // Событие - игрок присоединился
-  @EventHandler
-  fun onPlayerJoin(event: PlayerJoinEvent)
-  {
-    // if the game is already started, don't count down
-    if (isStarted) {
-      return
-    }
-    else{
-    // if the game is not started, but there are more than one player, start the game
-      if (getServer().onlinePlayers.size >= 2)
-        countDownAndStart()
-  }}
-
-  // Отсчёт до игры
-  fun countDownAndStart()
-  {
-    for (i in 1 .. 10) {
-    getServer().broadcastMessage("&aИгра начнётся через &e" + i + "&r&a секунд")
-    try {
-      Thread.sleep(1000)
-    }catch (e: InterruptedException){
-      e.printStackTrace()
-    }
+    // Событие - игрок присоединился
+    @EventHandler
+    fun onPlayerJoin(event: PlayerJoinEvent) {
+        // if the game is already started, don't count down
+        if (isStarted) {
+            return
+        } else {
+            // if the game is not started, but there are more than one player, start the game
+            if (getServer().onlinePlayers.size >= 2)
+                countDownAndStart()
+        }
     }
 
-    // set the game to started
-    var isStarted: Boolean = true
+    // Отсчёт до игры
+    fun countDownAndStart() {
+        for (i in 1..10) {
+            getServer().broadcastMessage("&aИгра начнётся через &e" + i + "&r&a секунд")
+            try {
+                Thread.sleep(1000)
+            } catch (e: InterruptedException) {
+                e.printStackTrace()
+            }
+        }
 
-    getServer().broadcastMessage("&bИГРА СТАРТУЕТ!")
-  }
+        // set the game to started
+        var isStarted: Boolean = true
 
-  // Алгоритм игры
-  fun start()
-  {
-    // Игроки телепортируются на игровое поле.
-    getOnlinePlayers().forEach { player -> getServer().getWorld("world")?.let { player.teleport(it.spawnLocation) } }
-
-    // Each row of a picture is an array of blocks. From the end to beginning, a row is selected.
-    // Next players stand in place of a block and hold it ih their hand to print it. If the printed row is the same as the selected row from the original picture, players get 10 points.
-    // The game is over when all the rows are printed.
-
-    // Select a random picture
-    var picture = Picture.entries.random().grid.reversed()
-
-    for (row in picture) {
-
+        getServer().broadcastMessage("&bИГРА СТАРТУЕТ!")
     }
-  }
+
+    // Алгоритм игры
+    fun start() {
+        // Игроки телепортируются на игровое поле.
+        getOnlinePlayers().forEach { player ->
+            getServer().getWorld("world")?.let { player.teleport(it.spawnLocation) }
+        }
+
+        // Each row of a picture is an array of blocks. From the end to beginning, a row is selected.
+        // Next players stand in place of a block and hold it ih their hand to print it. If the printed row is the same as the selected row from the original picture, players get 10 points.
+        // The game is over when all the rows are printed.
+
+        // Select a random picture
+        var picture = Picture.entries.random().grid.reversed()
+
+        for (row in picture) {
+
+        }
+    }
 }
