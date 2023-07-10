@@ -6,6 +6,9 @@ import org.bukkit.Material
 //    fun act() {
 //        println("Nothing")
 //    }
+
+/** ## Картинки
+ * @since the beginning */
 enum class Picture(val grid: List<List<Material>>) {
     Cow(listOf(
         listOf(Material.WHITE_WOOL, Material.WHITE_WOOL, Material.WHITE_WOOL, Material.WHITE_WOOL, Material.WHITE_WOOL, Material.WHITE_WOOL, Material.WHITE_WOOL, Material.WHITE_WOOL, Material.WHITE_WOOL, Material.WHITE_WOOL),

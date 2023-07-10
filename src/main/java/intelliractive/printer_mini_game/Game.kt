@@ -62,7 +62,6 @@ class Game() : Listener {
   fun start()
   {
     // Игроки телепортируются на игровое поле.
-//    getOnlinePlayers().forEach(player => player.teleport(getServer().getWorld("world").getSpawnLocation()))
     getOnlinePlayers().forEach { player -> getServer().getWorld("world")?.let { player.teleport(it.spawnLocation) } }
 
     // Each row of a picture is an array of blocks. From the end to beginning, a row is selected.
@@ -70,6 +69,10 @@ class Game() : Listener {
     // The game is over when all the rows are printed.
 
     // Select a random picture
-    var picture = Picture.entries.random()
+    var picture = Picture.entries.random().grid.reversed()
+
+    for (row in picture) {
+
+    }
   }
 }
