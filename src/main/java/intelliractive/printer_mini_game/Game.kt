@@ -18,7 +18,7 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
 
-class Game() : Listener {
+class Game : Listener {
     // Состояние игры
     var isStarted: Boolean = false
 
@@ -47,9 +47,10 @@ class Game() : Listener {
         }
 
         // set the game to started
-        var isStarted: Boolean = true
+        var isStarted = true
 
         getServer().broadcastMessage("&bИГРА СТАРТУЕТ!")
+        start()
     }
 
     // Алгоритм игры
@@ -59,12 +60,15 @@ class Game() : Listener {
             getServer().getWorld("world")?.let { player.teleport(it.spawnLocation) }
         }
 
-        // Each row of a picture is an array of blocks. From the end to beginning, a row is selected.
-        // Next players stand in place of a block and hold it ih their hand to print it. If the printed row is the same as the selected row from the original picture, players get 10 points.
+        // Each row of a picture is a list of blocks. From the end to beginning, a row is selected.
+        // Next players stand in place of a block and hold it ih their hand.
+        // After some time, a row gets printed with blocks in players' place and which they hold.
+        // The printed row is compared to the selected row from the original picture.
+        // If the printed row is the same as the selected row from the original picture, players get 10 points.
         // The game is over when all the rows are printed.
 
         // Select a random picture
-        var picture = Picture.entries.random()
+        val picture = Picture.entries.random()
 
         for (row in picture.grid.reversed()) {
 
