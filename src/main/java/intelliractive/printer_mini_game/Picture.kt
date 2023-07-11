@@ -1,4 +1,4 @@
-@file:Suppress("unused")
+@file:Suppress("unused", "UnusedImport")
 
 package intelliractive.printer_mini_game
 import org.bukkit.Material
@@ -38,6 +38,10 @@ import org.bukkit.Material.LIME_WOOL as lw
 import org.bukkit.Material.YELLOW_WOOL as yw
 import org.bukkit.Material.GREEN_WOOL as gw
 import org.bukkit.Material.PINK_WOOL as pw
+import org.bukkit.Material.GRAY_WOOL as grayw
+import org.bukkit.Material.LIGHT_GRAY_WOOL as lgrayw
+import org.bukkit.Material.PURPLE_WOOL as ppw
+import org.bukkit.Material.ORANGE_WOOL as ow
 
 import org.bukkit.Material.BLUE_TERRACOTTA as bt
 import org.bukkit.Material.LIGHT_BLUE_TERRACOTTA as lbt
@@ -76,6 +80,21 @@ import org.bukkit.Material.YELLOW_STAINED_GLASS as yglass
  * Здесь содердатся все картинки в форме списка со списками, явл. горизонтальными рядами, из кот. состоит картинка. Их 10 (размер картинки: 10*10).
  * @since the beginning */
 enum class Picture(val grid: List<List<Material>>) {
+    Cup(listOf(
+        listOf(ww, ww, ww, ww, ow, ww, ww, ww, ww, ww),
+        listOf(ww, ww, ww, ww, ow, ww, ww, ow, ww, ww),
+        listOf(ww, ww, ww, ow, ww, ww, ow, ww, ww, ww),
+        listOf(ww, ww, ww, ow, ww, ow, ww, ww, ww, ww),
+        listOf(ww, ww, ww, ww, ow, ww, ow, ww, ww, ww),
+
+        listOf(lbt, ww, ww, ww, ww, ww, ww, ww, lbt, ww),
+        listOf(lbt, lbt, ww, ww, ww, ww, ww, ww, lbt, lbt),
+        listOf(lbt, lbt, lbt, lbt, lbt, lbt, lbt, lbt, ww, lbt),
+
+        listOf(ww, lbt, lbt, lbt, lbt, lbt, lbt, lbt, lbt, ww),
+        listOf(blw, blw, lbt, lbt, lbt, lbt, lbt, ww, blw, blw),
+        listOf(lbt, blw, blw, blw, blw, blw, blw, blw, ww, lbt)
+    )),
     VillageHouse(listOf(
         listOf(lbw, lbw, lbw, lbw, lbw, lbw, lbw, lbw, lbw, lbw),
         listOf(lbw, wc, wc, lbw, lbw, lbw, lbw, lbw, lbw, lbw),
