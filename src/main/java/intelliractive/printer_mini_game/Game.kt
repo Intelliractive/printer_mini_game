@@ -64,9 +64,9 @@ class Game() : Listener {
         // The game is over when all the rows are printed.
 
         // Select a random picture
-        var picture = Picture.entries.random().grid.reversed()
+        var picture = Picture.entries.random()
 
-        for (row in picture) {
+        for (row in picture.grid.reversed()) {
 
         }
     }
