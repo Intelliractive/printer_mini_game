@@ -10,6 +10,8 @@
     The game differs depending on the coherence of the team of players.
     The game is over when all the blocks are printed.
  */
+@file:Suppress("DEPRECATION")
+
 package intelliractive.printer_mini_game
 
 import org.bukkit.Bukkit.getOnlinePlayers
